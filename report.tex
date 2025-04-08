@@ -1,0 +1,37 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+
+\title{Rapport Projet Monty Hall}
+\author{Nourry Celian}
+\date{Date de soutenance : le 16/12/2022}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+Le problème de Monty Hall est un casse-tête probabiliste, librement inspiré du jeu télévisé américain Let's Make a Deal. Il porte le nom de celui qui a présenté ce jeu aux États-Unis pendant treize ans, Monty Hall.
+\newline
+
+Simple dans son énoncé, mais non intuitif dans sa résolution, le problème de Monty Hall est parfois appelé « paradoxe de Monty Hall ». 
+Le jeu oppose un présentateur à un candidat (le joueur). Le joueur est placé devant trois portes fermées. Derrière l'une d'entre elles, se trouve une voiture et derrière chacune des deux autres se trouve une chèvre. Le joueur doit tout d'abord désigner une porte. Puis le présentateur doit ouvrir une porte qui n'est ni celle choisie par le candidat, ni celle cachant la voiture (le présentateur sait quelle est la bonne porte dès le début). Le candidat a alors le droit d'ouvrir la porte qu'il a choisie initialement, ou d'ouvrir la troisième porte. cf Wikipédia
+\newline
+
+De façcon intuitive, nous pourrions nous dire la probabilité de trouver la porte où se cache la voiture est de 1/3, et que changer de porte entre temps ne changerait pas la probabilité de gagner. Pourtant, les chances de trouver la voiture en changeant de porte sont deux fois plus grande. Le rapport va expliquer comment résoudre ce problème mathématique à l'aide de Python.
+\section{Solution du problème}
+Le problème peut être résumé de façcon très simplement sachant que l'hôte sait où se cache la voiture :
+ \newline
+ 
+ - Il y a 1/3 de chance de tomber sur la voiture initiallement si nous ne changeons pas de portes. Ainsi, les chances de perdre sont de 2/3.
+\newline
+
+ Maintenant, si nous changeons de porte, les probabilités de gagner changent selon la porte qu'on avait choisit au départ.
+\newline
+
+ 1. Si nous avions choisit la porte de la voiture dès le départ, nous avons inévitablement perdu en changeant de porte car les deux portes restantes sont des chèvres.
+\newline
+
+ 2. Si nous avions choisit la porte d'une des chèvres au départ, nous avons obligatoirement gagner car l'hôte ne peut pas choisir la porte de la voiture. Celui-ci est donc obligé d'ouvrir la porte de la seule chèvre restante.
+
+ En sachant ces conditions, nous remarquons donc que si nous choisissons la porte où se cache la voiture dès le départ, nous perdons automatiquement. Cependant, la probabilité que cela arrive est de 1/3. Contrairement à si nous choisissons la porte d'une chèvre au départ, où les probabilités que cela arrive sont de 2/3.
